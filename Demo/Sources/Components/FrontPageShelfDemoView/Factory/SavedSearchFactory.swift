@@ -8,7 +8,7 @@ class SavedSearchShelfFactory {
             let dataIndex = index % minCount
             let title = titles[dataIndex]
             let imageUrl = imageUrls[dataIndex]
-            return SavedSearchShelfViewModel(title: title, imageUrlString: imageUrl, showColoredBorder: index < 3)
+            return SavedSearchShelfViewModel(title: title, imageUrlString: imageUrl, isRead: index > 2)
         }
     }
     

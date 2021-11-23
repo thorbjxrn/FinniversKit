@@ -51,12 +51,6 @@ public class SavedSearchShelfCell: UICollectionViewCell {
         return view
     }()
 
-    public override func prepareForReuse() {
-        super.prepareForReuse()
-        remoteImageView.setImage(defaultImage, animated: false)
-        titleLabel.text = ""
-    }
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -79,12 +73,19 @@ public class SavedSearchShelfCell: UICollectionViewCell {
         ])
     }
 
+    // MARK: - Overrides
+
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        remoteImageView.setImage(defaultImage, animated: false)
+        titleLabel.text = ""
+        model = nil
+    }
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         remoteImageView.layer.borderColor = FrontPageView.backgroundColor.cgColor
-        if let showColoredBorder = model?.showColoredBorder {
-            imageContainerView.layer.borderColor = showColoredBorder ? UIColor.storyBorderColor?.cgColor : .btnDisabled
-        }
+        updateBorderColor()
     }
 }
 
@@ -103,8 +104,13 @@ public extension SavedSearchShelfCell {
     func configure(withModel model: SavedSearchShelfViewModel) {
         self.model = model
         self.titleLabel.text = model.title
-        imageContainerView.layer.borderColor = model.showColoredBorder ? UIColor.storyBorderColor?.cgColor : .btnDisabled
-        imageContainerView.layer.borderWidth = model.showColoredBorder ? 2 : 1
+        updateBorderColor()
+        imageContainerView.layer.borderWidth = model.isRead ? 1 : 2
+    }
+
+    private func updateBorderColor() {
+        guard let isRead = model?.isRead else { return }
+        imageContainerView.layer.borderColor = isRead ? .btnDisabled : UIColor.storyBorderColor?.cgColor
     }
 }
 
