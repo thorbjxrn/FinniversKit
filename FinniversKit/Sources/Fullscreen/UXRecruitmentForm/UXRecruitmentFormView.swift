@@ -6,7 +6,6 @@ import UIKit
 
 public protocol UXRecruitmentFormViewDelegate: AnyObject {
     func uxRecruitmentFormView(_ view: UXRecruitmentFormView, didSubmitWithName name: String, email: String, phoneNumber: String?)
-    func uxRecruitmentFormViewDidTapDisclaimerButton(_ view: UXRecruitmentFormView)
 }
 
 public final class UXRecruitmentFormView: UIView {
@@ -15,7 +14,7 @@ public final class UXRecruitmentFormView: UIView {
     public var isValid: Bool {
         let isValidName = nameTextField.isValidAndNotEmpty
         let isValidEmail = emailTextField.isValidAndNotEmpty
-        let isValidPhoneNumber = phoneNumberTextField.isHidden || phoneNumberTextField.isValidAndNotEmpty
+        let isValidPhoneNumber = phoneNumberTextField.isValidAndNotEmpty
 
         return isValidName && isValidEmail && isValidPhoneNumber
     }
@@ -65,19 +64,10 @@ public final class UXRecruitmentFormView: UIView {
         return textField
     }()
 
-    private lazy var showPhoneNumberCheckbox: ContactFormCheckbox = {
-        let checkbox = ContactFormCheckbox(withAutoLayout: true)
-        checkbox.delegate = self
-        return checkbox
-    }()
-
-    private let showPhoneNumberCheckboxWrapperView = UIView(withAutoLayout: true)
-
     private lazy var phoneNumberTextField: TextField = {
         let textField = TextField(inputType: .phoneNumber)
         textField.textField.returnKeyType = .send
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.isHidden = true
         textField.delegate = self
         return textField
     }()
@@ -90,10 +80,11 @@ public final class UXRecruitmentFormView: UIView {
         return button
     }()
 
-    private lazy var disclaimerView: DisclaimerView = {
-        let view = DisclaimerView(withAutoLayout: true)
-        view.delegate = self
-        return view
+    private lazy var disclaimerLabel: Label = {
+        let label = Label(style: .detail)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
     }()
 
     private var currentTextField: TextField? {
@@ -128,7 +119,7 @@ public final class UXRecruitmentFormView: UIView {
 
     // MARK: - Setup
 
-    public func configure(with viewModel: ContactFormViewModel) {
+    public func configure(with viewModel: UXRecruitmentFormViewModel) {
         titleLabel.text = viewModel.title
         detailTextLabel.text = viewModel.detailText
         nameTextField.placeholderText = viewModel.namePlaceholder
@@ -150,24 +141,11 @@ public final class UXRecruitmentFormView: UIView {
         emailTextField.placeholderText = viewModel.emailPlaceholder
         emailTextField.helpText = viewModel.emailErrorHelpText
 
-        if viewModel.phoneNumberRequired {
-            showPhoneNumberCheckboxWrapperView.isHidden = true
-            phoneNumberTextField.isHidden = false
-        } else {
-            showPhoneNumberCheckboxWrapperView.isHidden = false
-            phoneNumberTextField.isHidden = true
-            showPhoneNumberCheckbox.configure(
-                question: viewModel.showPhoneNumberQuestion,
-                answer: viewModel.showPhoneNumberAnswer
-            )
-        }
         phoneNumberTextField.placeholderText = viewModel.phoneNumberPlaceholder
         phoneNumberTextField.helpText = viewModel.phoneNumberErrorHelpText
 
         submitButton.setTitle(viewModel.submitButtonTitle, for: .normal)
-
-        let disclaimerViewModel = DisclaimerViewModel(disclaimerText: viewModel.disclaimerText, readMoreButtonTitle: viewModel.disclaimerReadMoreButtonTitle)
-        disclaimerView.configure(with: disclaimerViewModel)
+        disclaimerLabel.text = viewModel.disclaimerText
     }
 
     private func setup() {
@@ -183,16 +161,8 @@ public final class UXRecruitmentFormView: UIView {
         contentView.addSubview(detailTextLabel)
         contentView.addSubview(nameTextField)
         contentView.addSubview(emailTextField)
-
-        showPhoneNumberCheckboxWrapperView.addSubview(showPhoneNumberCheckbox)
-
-        let bottomStackView = UIStackView(arrangedSubviews: [showPhoneNumberCheckboxWrapperView, phoneNumberTextField])
-        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
-        bottomStackView.axis = .vertical
-        bottomStackView.spacing = .spacingS
-
-        contentView.addSubview(bottomStackView)
-        contentView.addSubview(disclaimerView)
+        contentView.addSubview(phoneNumberTextField)
+        contentView.addSubview(disclaimerLabel)
         contentView.addSubview(submitButton)
         scrollView.fillInSuperview()
 
@@ -219,21 +189,19 @@ public final class UXRecruitmentFormView: UIView {
             emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            bottomStackView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
-            bottomStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bottomStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            phoneNumberTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
+            phoneNumberTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            phoneNumberTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            disclaimerView.topAnchor.constraint(equalTo: bottomStackView.bottomAnchor, constant: .spacingM),
-            disclaimerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            disclaimerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            disclaimerLabel.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: .spacingM),
+            disclaimerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            disclaimerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            submitButton.topAnchor.constraint(equalTo: disclaimerView.bottomAnchor, constant: .spacingM),
+            submitButton.topAnchor.constraint(equalTo: disclaimerLabel.bottomAnchor, constant: .spacingM),
             submitButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             submitButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             submitButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
-
-        showPhoneNumberCheckbox.fillInSuperview(insets: UIEdgeInsets(top: .spacingXL, leading: 0, bottom: 0, trailing: 0), isActive: true)
     }
 
     // MARK: - Actions
@@ -331,29 +299,5 @@ extension UXRecruitmentFormView: TextFieldDelegate {
 
     public func textFieldDidChange(_ textField: TextField) {
         submitButton.isEnabled = isValid
-    }
-}
-
-// MARK: - ContactFormCheckboxDelegate
-
-extension UXRecruitmentFormView: ContactFormCheckboxDelegate {
-    func contactFormCheckbox(_ checkbox: ContactFormCheckbox, didChangeSelection isSelected: Bool) {
-        phoneNumberTextField.textField.text = nil
-
-        UIView.animate(withDuration: 0, animations: { [weak self] in
-            self?.phoneNumberTextField.isHidden = !isSelected
-        }, completion: { [weak self] _ in
-            guard let self = self else { return }
-            self.submitButton.isEnabled = self.isValid
-            self.scrollToBottom(animated: true)
-        })
-    }
-}
-
-// MARK: - DisclaimerViewDelegate
-
-extension UXRecruitmentFormView: DisclaimerViewDelegate {
-    public func disclaimerViewDidSelectReadMoreButton(_ disclaimerView: DisclaimerView) {
-        delegate?.uxRecruitmentFormViewDidTapDisclaimerButton(self)
     }
 }
