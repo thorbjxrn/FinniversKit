@@ -33,6 +33,7 @@ public enum FullscreenDemoViews: String, DemoViews {
     case resultView
     case confettiView
     case messageUserRequiredSheet
+    case uxRecruitmentFormView
 
     public var viewController: UIViewController {
         switch self {
@@ -116,6 +117,8 @@ public enum FullscreenDemoViews: String, DemoViews {
             let sheet = MessageUserRequiredSheet()
             sheet.configure(MessageUserRequiredData.labelText, buttonText: MessageUserRequiredData.buttonText)
             return sheet
+        case .uxRecruitmentFormView:
+            return DemoViewController<UXRecruitmentFormDemoView>()
         }
     }
 }

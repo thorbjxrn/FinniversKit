@@ -133,6 +133,7 @@
 		4D3D48EE26394C3E006A0181 /* TransactionEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D48ED26394C3E006A0181 /* TransactionEntryViewModel.swift */; };
 		4D9C10CE27636B31000FD357 /* StoryBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C10CD27636B31000FD357 /* StoryBorderView.swift */; };
 		4DD3AA7C27B56592007B107E /* DetailCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AA7B27B56591007B107E /* DetailCalloutView.swift */; };
+		4DEF080627BA838B00C19992 /* UXRecruitmentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEF080527BA838B00C19992 /* UXRecruitmentFormView.swift */; };
 		55C5B274203D8E20007D7277 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5B273203D8E20007D7277 /* Broadcast.swift */; };
 		55C5B278203DB56A007D7277 /* BroadcastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5B277203DB56A007D7277 /* BroadcastMessage.swift */; };
 		5D0ED35125A49FA7007750D0 /* FinnTextField+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0ED35025A49FA7007750D0 /* FinnTextField+Style.swift */; };
@@ -580,6 +581,7 @@
 		4D3D48ED26394C3E006A0181 /* TransactionEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewModel.swift; sourceTree = "<group>"; };
 		4D9C10CD27636B31000FD357 /* StoryBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBorderView.swift; sourceTree = "<group>"; };
 		4DD3AA7B27B56591007B107E /* DetailCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCalloutView.swift; sourceTree = "<group>"; };
+		4DEF080527BA838B00C19992 /* UXRecruitmentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXRecruitmentFormView.swift; sourceTree = "<group>"; };
 		55C5B273203D8E20007D7277 /* Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		55C5B277203DB56A007D7277 /* BroadcastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastMessage.swift; sourceTree = "<group>"; };
 		5D0ED35025A49FA7007750D0 /* FinnTextField+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinnTextField+Style.swift"; sourceTree = "<group>"; };
@@ -1630,6 +1632,7 @@
 		44D912492077AC8A00486848 /* Fullscreen */ = {
 			isa = PBXGroup;
 			children = (
+				4DEF080427BA834F00C19992 /* UXRecruitmentForm */,
 				496F8C122473DCC600AE0735 /* FavoriteSoldView */,
 				4441F9F022CCF75D00DCFD2F /* AddressMapView */,
 				DAD0D48621072EDD0091DD4D /* AdReporter */,
@@ -1766,6 +1769,14 @@
 				4D152E732577D7D300282244 /* NavigationLinkView.swift */,
 			);
 			path = NavigationLinkView;
+			sourceTree = "<group>";
+		};
+		4DEF080427BA834F00C19992 /* UXRecruitmentForm */ = {
+			isa = PBXGroup;
+			children = (
+				4DEF080527BA838B00C19992 /* UXRecruitmentFormView.swift */,
+			);
+			path = UXRecruitmentForm;
 			sourceTree = "<group>";
 		};
 		5D0ED34F25A49F81007750D0 /* SwiftUI */ = {
@@ -3229,6 +3240,7 @@
 				55C5B278203DB56A007D7277 /* BroadcastMessage.swift in Sources */,
 				CF87A857229C0C5700DA8243 /* ContactFormView.swift in Sources */,
 				5DB39C8F25932DC700204B23 /* FinnTextField.swift in Sources */,
+				4DEF080627BA838B00C19992 /* UXRecruitmentFormView.swift in Sources */,
 				441FE432209A24E500B04EF1 /* AdRecommendationsGridViewLayoutConfiguration.swift in Sources */,
 				CFCC3D3123686C0D002DD4CF /* FooterButtonView.swift in Sources */,
 				431875C1211180F100D71723 /* BuyerPickerProfileCell.swift in Sources */,
