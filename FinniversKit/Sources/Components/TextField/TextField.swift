@@ -182,6 +182,8 @@ public class TextField: UIView {
             isValidByInputType = isValidEmail(text)
         case .phoneNumber:
             isValidByInputType = isValidPhoneNumber(text)
+        case .age:
+            isValidByInputType = isValidAge(text)
         case .normal, .multiline:
             isValidByInputType = true
         }
@@ -365,8 +367,17 @@ public class TextField: UIView {
         return !password.isEmpty
     }
 
+    private func isValidAge(_ age: String) -> Bool {
+        guard
+            let ageInt = Int(age)
+        else {
+            return false
+        }
+        return ageInt >= 0 && ageInt < 120
+    }
+
     private func isHelpTextForErrors() -> Bool {
-        if inputType == .email || inputType == .phoneNumber {
+        if inputType == .email || inputType == .phoneNumber || inputType == .age {
             return true
         }
         return customValidator != nil

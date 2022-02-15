@@ -13,10 +13,11 @@ public final class UXRecruitmentFormView: UIView {
 
     public var isValid: Bool {
         let isValidName = nameTextField.isValidAndNotEmpty
+        let isValidAge = ageTextField.isValidAndNotEmpty
         let isValidEmail = emailTextField.isValidAndNotEmpty
         let isValidPhoneNumber = phoneNumberTextField.isValidAndNotEmpty
 
-        return isValidName && isValidEmail && isValidPhoneNumber
+        return isValidName && isValidAge && isValidEmail && isValidPhoneNumber
     }
 
     public var phoneNumberRegEx: String {
@@ -30,18 +31,14 @@ public final class UXRecruitmentFormView: UIView {
     private lazy var scrollView = UIScrollView(withAutoLayout: true)
     private lazy var contentView = UIView(withAutoLayout: true)
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel(withAutoLayout: true)
-        label.font = .title3
-        label.textColor = .textPrimary
+    private lazy var detailTextLabel: Label = {
+        let label = Label(style: .caption, withAutoLayout: true)
         label.numberOfLines = 0
         return label
     }()
 
-    private lazy var detailTextLabel: UILabel = {
-        let label = UILabel(withAutoLayout: true)
-        label.font = .body
-        label.textColor = .textPrimary
+    private lazy var subtitleLabel: Label = {
+        let label = Label(style: .bodyStrong, withAutoLayout: true)
         label.numberOfLines = 0
         return label
     }()
@@ -51,6 +48,14 @@ public final class UXRecruitmentFormView: UIView {
         textField.textField.returnKeyType = .next
         textField.textField.textContentType = .name
         textField.textField.autocapitalizationType = .words
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
+        return textField
+    }()
+
+    private lazy var ageTextField: TextField = {
+        let textField = TextField(inputType: .age)
+        textField.textField.returnKeyType = .next
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
         return textField
@@ -80,16 +85,11 @@ public final class UXRecruitmentFormView: UIView {
         return button
     }()
 
-    private lazy var disclaimerLabel: Label = {
-        let label = Label(style: .detail)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        return label
-    }()
-
     private var currentTextField: TextField? {
         if nameTextField.textField.isFirstResponder {
             return nameTextField
+        } else if ageTextField.isFirstResponder {
+            return ageTextField
         } else if emailTextField.textField.isFirstResponder {
             return emailTextField
         } else if phoneNumberTextField.textField.isFirstResponder {
@@ -120,8 +120,8 @@ public final class UXRecruitmentFormView: UIView {
     // MARK: - Setup
 
     public func configure(with viewModel: UXRecruitmentFormViewModel) {
-        titleLabel.text = viewModel.title
         detailTextLabel.text = viewModel.detailText
+        subtitleLabel.text = viewModel.subtitle
         nameTextField.placeholderText = viewModel.namePlaceholder
 
         if viewModel.fullNameRequired {
@@ -138,6 +138,9 @@ public final class UXRecruitmentFormView: UIView {
             nameTextField.helpText = nil
         }
 
+        ageTextField.placeholderText = viewModel.agePlaceholder
+        ageTextField.helpText = viewModel.ageErrorHelpText
+
         emailTextField.placeholderText = viewModel.emailPlaceholder
         emailTextField.helpText = viewModel.emailErrorHelpText
 
@@ -145,7 +148,6 @@ public final class UXRecruitmentFormView: UIView {
         phoneNumberTextField.helpText = viewModel.phoneNumberErrorHelpText
 
         submitButton.setTitle(viewModel.submitButtonTitle, for: .normal)
-        disclaimerLabel.text = viewModel.disclaimerText
     }
 
     private func setup() {
@@ -157,12 +159,12 @@ public final class UXRecruitmentFormView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        contentView.addSubview(titleLabel)
         contentView.addSubview(detailTextLabel)
+        contentView.addSubview(subtitleLabel)
         contentView.addSubview(nameTextField)
+        contentView.addSubview(ageTextField)
         contentView.addSubview(emailTextField)
         contentView.addSubview(phoneNumberTextField)
-        contentView.addSubview(disclaimerLabel)
         contentView.addSubview(submitButton)
         scrollView.fillInSuperview()
 
@@ -173,19 +175,23 @@ public final class UXRecruitmentFormView: UIView {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -.spacingM),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -.spacingXL),
 
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-            detailTextLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .spacingXL),
+            detailTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             detailTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             detailTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            nameTextField.topAnchor.constraint(equalTo: detailTextLabel.bottomAnchor, constant: .spacingM),
+            subtitleLabel.topAnchor.constraint(equalTo: detailTextLabel.bottomAnchor, constant: .spacingXL + .spacingS),
+            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            nameTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: .spacingM),
             nameTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: .spacingM),
+            ageTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: .spacingM),
+            ageTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            ageTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            emailTextField.topAnchor.constraint(equalTo: ageTextField.bottomAnchor),
             emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
@@ -193,14 +199,10 @@ public final class UXRecruitmentFormView: UIView {
             phoneNumberTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             phoneNumberTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            disclaimerLabel.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: .spacingM),
-            disclaimerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            disclaimerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-            submitButton.topAnchor.constraint(equalTo: disclaimerLabel.bottomAnchor, constant: .spacingM),
-            submitButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            submitButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            submitButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            submitButton.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: .spacingM),
+            submitButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            submitButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            submitButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.spacingXXL),
         ])
     }
 

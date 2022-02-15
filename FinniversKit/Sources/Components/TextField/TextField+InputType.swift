@@ -11,6 +11,7 @@ extension TextField {
         case phoneNumber
         case password
         case multiline
+        case age
 
         var isSecureMode: Bool {
             switch self {
@@ -23,6 +24,7 @@ extension TextField {
             switch self {
             case .email: return .emailAddress
             case .phoneNumber: return .phonePad
+            case .age: return .numberPad
             default: return .default
             }
         }
@@ -30,7 +32,7 @@ extension TextField {
         var returnKeyType: UIReturnKeyType {
             switch self {
             case .email: return .next
-            case .normal, .phoneNumber, .password, .multiline: return .done
+            case .normal, .phoneNumber, .password, .multiline, .age: return .done
             }
         }
 
@@ -42,7 +44,7 @@ extension TextField {
                 return .telephoneNumber
             case .password:
                 return .password
-            case .normal, .multiline:
+            case .normal, .multiline, .age:
                 return nil
             }
         }
