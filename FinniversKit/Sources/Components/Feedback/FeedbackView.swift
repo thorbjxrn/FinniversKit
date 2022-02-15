@@ -35,6 +35,7 @@ public class FeedbackView: UIView {
     private var state: State = .initial
     private var presentation: FeedbackViewPresentation?
     private var allowAutomaticPresentationSwitch: Bool = true
+    private var borderColor: UIColor?
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(withAutoLayout: true)
@@ -114,6 +115,15 @@ public class FeedbackView: UIView {
         configure(forPresentation: presentation)
     }
 
+    public func configure(withBackgroundColor backgroundColor: UIColor, titleTextColor: UIColor, borderColor: UIColor?) {
+        self.backgroundColor = backgroundColor
+        titleView.configure(withTitleColor: titleTextColor)
+        if let borderColor = borderColor {
+            layer.borderColor = borderColor.cgColor
+            self.borderColor = borderColor
+        }
+    }
+
     public func setState(_ state: State, withViewModel viewModel: FeedbackViewModel) {
         self.state = state
         configure(withViewModel: viewModel)
@@ -178,7 +188,7 @@ public class FeedbackView: UIView {
         super.layoutSubviews()
         hasBeenPresented = true
 
-        layer.borderColor = .decorationSubtle
+        layer.borderColor = borderColor?.cgColor ?? .decorationSubtle
 
         guard allowAutomaticPresentationSwitch else { return }
 
@@ -258,6 +268,10 @@ private class TitleView: UIView {
             titleLabel.font = .bodyStrong
             titleLabelLeadingConstraint.constant = .spacingS
         }
+    }
+
+    func configure(withTitleColor titleColor: UIColor) {
+        titleLabel.textColor = titleColor
     }
 }
 
