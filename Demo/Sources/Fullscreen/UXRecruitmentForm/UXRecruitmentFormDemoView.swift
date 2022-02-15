@@ -43,14 +43,16 @@ extension UXRecruitmentFormDemoView: UXRecruitmentFormViewDelegate {
 // MARK: - Private types
 
 private struct ViewModel: UXRecruitmentFormViewModel {
-    let title = "Overskrift"
-    let detailText = "Tekst"
+    let detailText = "Hvert år snakker vi med nærmere tusen brukere av FINN for å lage så gode tjenester som mulig.\n\nHar du lyst til å delta på brukertester eller intervju? Alle som deltar får  gavekort som takk for hjelpen.💰"
+    let subtitle = "Om deg"
     let namePlaceholder = "Navn"
+    let agePlaceholder = "Alder"
     let emailPlaceholder = "E-post"
     let phoneNumberPlaceholder = "Telefonnummer"
-    let submitButtonTitle = "Kjør på!"
+    let submitButtonTitle = "Neste"
     var emailErrorHelpText = "Oppgi en gyldig e-postadresse."
     var phoneNumberErrorHelpText = "Oppgi et gyldig telefonnummer"
+    let ageErrorHelpText = "Oppgi en gyldig alder"
     var disclaimerText = "Disclaimer"
     var phoneNumberRequired = false
     var fullNameRequired = false
