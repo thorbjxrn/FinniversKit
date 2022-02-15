@@ -182,6 +182,7 @@
 		4D01FC97261C48F5008B9913 /* TransactionEntryDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01FC96261C48F5008B9913 /* TransactionEntryDemoView.swift */; };
 		4D152E7B2577DB1300282244 /* NavigationLinkViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D152E7A2577DB1300282244 /* NavigationLinkViewDemoView.swift */; };
 		4D224CDC27BA85AB0061D7E0 /* UXRecruitmentFormDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224CDB27BA85AB0061D7E0 /* UXRecruitmentFormDemoView.swift */; };
+		4D224DE327BBF93D0061D7E0 /* CheckboxFormDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DE227BBF93D0061D7E0 /* CheckboxFormDemoView.swift */; };
 		4D529E13258357D0007AE5B6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D529E12258357D0007AE5B6 /* Icons.xcassets */; };
 		4D529E2125837087007AE5B6 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D529E2025837087007AE5B6 /* ImageAsset.swift */; };
 		4DD3AA7A27B5651F007B107E /* DetailCalloutDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AA7927B5651F007B107E /* DetailCalloutDemoView.swift */; };
@@ -411,6 +412,7 @@
 		4D01FC96261C48F5008B9913 /* TransactionEntryDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryDemoView.swift; sourceTree = "<group>"; };
 		4D152E7A2577DB1300282244 /* NavigationLinkViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkViewDemoView.swift; sourceTree = "<group>"; };
 		4D224CDB27BA85AB0061D7E0 /* UXRecruitmentFormDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXRecruitmentFormDemoView.swift; sourceTree = "<group>"; };
+		4D224DE227BBF93D0061D7E0 /* CheckboxFormDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormDemoView.swift; sourceTree = "<group>"; };
 		4D529E12258357D0007AE5B6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		4D529E2025837087007AE5B6 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		4DD3AA7927B5651F007B107E /* DetailCalloutDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCalloutDemoView.swift; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 		46E772CB242CEF09008A5E93 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4D224DE127BBF9280061D7E0 /* CheckboxFormView */,
 				D75E14D22734855B008EB126 /* FrontPageShelfDemoView */,
 				D7C750362731C5FF002BDE98 /* RecentlySavedShelfDemoView */,
 				D75523A02730090300C0C7DD /* RecentlyFavoritedShelfDemoView */,
@@ -1628,6 +1631,14 @@
 			path = UXRecruitmentForm;
 			sourceTree = "<group>";
 		};
+		4D224DE127BBF9280061D7E0 /* CheckboxFormView */ = {
+			isa = PBXGroup;
+			children = (
+				4D224DE227BBF93D0061D7E0 /* CheckboxFormDemoView.swift */,
+			);
+			path = CheckboxFormView;
+			sourceTree = "<group>";
+		};
 		4D529E1625835A23007AE5B6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -2005,6 +2016,7 @@
 				46E77412242CEF0A008A5E93 /* EarthHourDefaultData.swift in Sources */,
 				46E77446242CEF0A008A5E93 /* BasicCellVariationsDemoView.swift in Sources */,
 				46E77411242CEF0A008A5E93 /* ViewingsDemoView.swift in Sources */,
+				4D224DE327BBF93D0061D7E0 /* CheckboxFormDemoView.swift in Sources */,
 				46E773F8242CEF0A008A5E93 /* PanelDemoView.swift in Sources */,
 				46E773C9242CEF0A008A5E93 /* ResultDemoView.swift in Sources */,
 				46E773CE242CEF0A008A5E93 /* RegisterViewDefaultData.swift in Sources */,

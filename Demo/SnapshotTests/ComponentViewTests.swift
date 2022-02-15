@@ -286,4 +286,8 @@ class ComponentViewTests: XCTestCase {
     func testDetailCallout() {
         snapshot(.detailCallout)
     }
+
+    func testCheckboxFormView() {
+        snapshot(.checkboxFormView)
+    }
 }

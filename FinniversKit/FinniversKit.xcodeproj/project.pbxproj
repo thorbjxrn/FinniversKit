@@ -130,6 +130,10 @@
 		4D0CF28D261C467B0008CC43 /* TransactionEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CF28C261C467B0008CC43 /* TransactionEntryView.swift */; };
 		4D152E742577D7D300282244 /* NavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D152E732577D7D300282244 /* NavigationLinkView.swift */; };
 		4D224DD527BA98730061D7E0 /* UXRecruitmentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DD427BA98730061D7E0 /* UXRecruitmentFormViewModel.swift */; };
+		4D224DDA27BBC7090061D7E0 /* CheckboxFormSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DD927BBC7090061D7E0 /* CheckboxFormSectionView.swift */; };
+		4D224DDC27BBC8350061D7E0 /* CheckboxStatementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DDB27BBC8350061D7E0 /* CheckboxStatementView.swift */; };
+		4D224DDE27BBCAAB0061D7E0 /* CheckboxFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DDD27BBCAAB0061D7E0 /* CheckboxFormViewModel.swift */; };
+		4D224DE027BBD0400061D7E0 /* CheckboxFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D224DDF27BBD0400061D7E0 /* CheckboxFormView.swift */; };
 		4D3D48EA26394C1E006A0181 /* TransactionStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D48E926394C1E006A0181 /* TransactionStepView.swift */; };
 		4D3D48EE26394C3E006A0181 /* TransactionEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D48ED26394C3E006A0181 /* TransactionEntryViewModel.swift */; };
 		4D9C10CE27636B31000FD357 /* StoryBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C10CD27636B31000FD357 /* StoryBorderView.swift */; };
@@ -579,6 +583,10 @@
 		4D0CF28C261C467B0008CC43 /* TransactionEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryView.swift; sourceTree = "<group>"; };
 		4D152E732577D7D300282244 /* NavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkView.swift; sourceTree = "<group>"; };
 		4D224DD427BA98730061D7E0 /* UXRecruitmentFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UXRecruitmentFormViewModel.swift; sourceTree = "<group>"; };
+		4D224DD927BBC7090061D7E0 /* CheckboxFormSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormSectionView.swift; sourceTree = "<group>"; };
+		4D224DDB27BBC8350061D7E0 /* CheckboxStatementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStatementView.swift; sourceTree = "<group>"; };
+		4D224DDD27BBCAAB0061D7E0 /* CheckboxFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormViewModel.swift; sourceTree = "<group>"; };
+		4D224DDF27BBD0400061D7E0 /* CheckboxFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxFormView.swift; sourceTree = "<group>"; };
 		4D3D48E926394C1E006A0181 /* TransactionStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStepView.swift; sourceTree = "<group>"; };
 		4D3D48ED26394C3E006A0181 /* TransactionEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntryViewModel.swift; sourceTree = "<group>"; };
 		4D9C10CD27636B31000FD357 /* StoryBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBorderView.swift; sourceTree = "<group>"; };
@@ -1302,6 +1310,7 @@
 		4447F6641FDB2B110033DBC1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4D224DD827BBC5F90061D7E0 /* CheckboxFormView */,
 				D75E14CF27347535008EB126 /* FrontPageShelfView */,
 				D75523A8273159E900C0C7DD /* FrontPageShelfHeaderView */,
 				D7D514C227293F5D0065E2F6 /* ChristmasPromotionView */,
@@ -1771,6 +1780,17 @@
 				4D152E732577D7D300282244 /* NavigationLinkView.swift */,
 			);
 			path = NavigationLinkView;
+			sourceTree = "<group>";
+		};
+		4D224DD827BBC5F90061D7E0 /* CheckboxFormView */ = {
+			isa = PBXGroup;
+			children = (
+				4D224DD927BBC7090061D7E0 /* CheckboxFormSectionView.swift */,
+				4D224DDB27BBC8350061D7E0 /* CheckboxStatementView.swift */,
+				4D224DDD27BBCAAB0061D7E0 /* CheckboxFormViewModel.swift */,
+				4D224DDF27BBD0400061D7E0 /* CheckboxFormView.swift */,
+			);
+			path = CheckboxFormView;
 			sourceTree = "<group>";
 		};
 		4DEF080427BA834F00C19992 /* UXRecruitmentForm */ = {
@@ -3244,6 +3264,7 @@
 				CF87A857229C0C5700DA8243 /* ContactFormView.swift in Sources */,
 				5DB39C8F25932DC700204B23 /* FinnTextField.swift in Sources */,
 				4DEF080627BA838B00C19992 /* UXRecruitmentFormView.swift in Sources */,
+				4D224DDE27BBCAAB0061D7E0 /* CheckboxFormViewModel.swift in Sources */,
 				441FE432209A24E500B04EF1 /* AdRecommendationsGridViewLayoutConfiguration.swift in Sources */,
 				CFCC3D3123686C0D002DD4CF /* FooterButtonView.swift in Sources */,
 				431875C1211180F100D71723 /* BuyerPickerProfileCell.swift in Sources */,
@@ -3312,6 +3333,7 @@
 				DAD6EB2C2369916100968497 /* SettingsSectionFooterView.swift in Sources */,
 				449C60B1234DD82E00C51A63 /* BasicTableView.swift in Sources */,
 				5DEAC62725C95F5F003376AD /* JobAdRecommendationViewModel.swift in Sources */,
+				4D224DDC27BBC8350061D7E0 /* CheckboxStatementView.swift in Sources */,
 				9BC33DEB22D76405007CCD65 /* LoginEntryDialogueView.swift in Sources */,
 				CF164CED230D916000250822 /* FavoriteFolderShareLinkView.swift in Sources */,
 				DAA9A3A8210215400021F7DC /* Selectionbox.swift in Sources */,
@@ -3473,6 +3495,7 @@
 				CFCED8DD22CE3EAA0049A3A0 /* AddFavoriteFolderButton.swift in Sources */,
 				DAB7FAA921B690DD00BF8CC6 /* BottomSheetAnimationController.swift in Sources */,
 				9B057AAE235EEBE9007B1CF0 /* MissionPopupView.swift in Sources */,
+				4D224DE027BBD0400061D7E0 /* CheckboxFormView.swift in Sources */,
 				0884C6CE22B7BE360015474D /* DisclaimerViewModel.swift in Sources */,
 				F2BE6C09236AD24B0085A05A /* CheckmarkTitleView.swift in Sources */,
 				CF3DEDB4219465F300DB3E5A /* FrontPageView.swift in Sources */,
@@ -3608,6 +3631,7 @@
 				9A37D89F84574B63CB61EAAB /* LinkButtonView.swift in Sources */,
 				9A37D71314CB8E978EDC889C /* LinkButtonViewModel.swift in Sources */,
 				9A37D724F7DF732E308CC530 /* ContractActionView.swift in Sources */,
+				4D224DDA27BBC7090061D7E0 /* CheckboxFormSectionView.swift in Sources */,
 				9A37D44ADD20BEDD3F754D62 /* ContractActionViewModel.swift in Sources */,
 				9A37DB164E9BC6E1EBB22504 /* ObjectPageTitleView.swift in Sources */,
 				68AE01E84A4CA1BC83B340EE /* FavoriteButtonView.swift in Sources */,
