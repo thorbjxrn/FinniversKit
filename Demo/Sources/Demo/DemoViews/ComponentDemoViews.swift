@@ -35,6 +35,7 @@ public enum ComponentDemoViews: String, DemoViews {
     case stepIndicatorView
     case nativeAdvert
     case callout
+    case detailCallout
     case phaseList
     case iconCollection
     case disclaimerView
@@ -70,6 +71,7 @@ public enum ComponentDemoViews: String, DemoViews {
     case recentlyfavoritedShelf
     case savedSearchShelf
     case frontPageShelf
+    case overFlowCollectionView
 
     public var viewController: UIViewController {
         switch self {
@@ -137,6 +139,8 @@ public enum ComponentDemoViews: String, DemoViews {
             return DemoViewController<NativeAdvertDemoView>(dismissType: .dismissButton)
         case .callout:
             return DemoViewController<CalloutDemoView>()
+        case .detailCallout:
+            return DemoViewController<DetailCalloutDemoView>()
         case .phaseList:
             return DemoViewController<PhaseListDemoView>()
         case .iconCollection:
@@ -212,6 +216,8 @@ public enum ComponentDemoViews: String, DemoViews {
             return DemoViewController<SavedSearchShelfDemoView>()
         case .frontPageShelf:
             return DemoViewController<FrontPageShelfDemoView>()
+        case .overFlowCollectionView:
+            return DemoViewController<OverflowCollectionViewDemo>()
         }
     }
 }

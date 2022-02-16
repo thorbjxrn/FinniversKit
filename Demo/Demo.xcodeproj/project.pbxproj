@@ -183,6 +183,8 @@
 		4D152E7B2577DB1300282244 /* NavigationLinkViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D152E7A2577DB1300282244 /* NavigationLinkViewDemoView.swift */; };
 		4D529E13258357D0007AE5B6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D529E12258357D0007AE5B6 /* Icons.xcassets */; };
 		4D529E2125837087007AE5B6 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D529E2025837087007AE5B6 /* ImageAsset.swift */; };
+		5B959A0F727EB51E56231370 /* OverflowCollectionViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B959C33286B6BD7933C9BA9 /* OverflowCollectionViewDemo.swift */; };
+		4DD3AA7A27B5651F007B107E /* DetailCalloutDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3AA7927B5651F007B107E /* DetailCalloutDemoView.swift */; };
 		5D62FD7025B03B4800EB882D /* DemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD6F25B03B4800EB882D /* DemoViews.swift */; };
 		5DA190D525A5BC5B002305A8 /* FinnTextField+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA190D425A5BC5B002305A8 /* FinnTextField+Previews.swift */; };
 		5DA190F025A87EAB002305A8 /* FinnTextView+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA190EF25A87EAB002305A8 /* FinnTextView+Previews.swift */; };
@@ -195,7 +197,6 @@
 		9BA6C4A224336B9A009D417B /* DemoWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6C4A124336B9A009D417B /* DemoWrapperView.swift */; };
 		9BBC904024FD252B0003D2D8 /* UITraitCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC903F24FD252B0003D2D8 /* UITraitCollection+Extensions.swift */; };
 		AA189E8726847AE700FD3A41 /* BlockUserDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA189E8626847AE700FD3A41 /* BlockUserDemoView.swift */; };
-		D6D43CD625BF239E00234AC2 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 46E77597242D6890008A5E93 /* SnapshotTesting */; };
 		D75523A2273009A200C0C7DD /* RecentlyFavoritedShelfDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75523A1273009A200C0C7DD /* RecentlyFavoritedShelfDemoView.swift */; };
 		D75523A627308C7000C0C7DD /* RecentlyFavoritedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75523A527308C7000C0C7DD /* RecentlyFavoritedFactory.swift */; };
 		D75E14D42734856D008EB126 /* FrontPageShelfDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E14D32734856D008EB126 /* FrontPageShelfDemoView.swift */; };
@@ -205,6 +206,7 @@
 		DA083C2E2462BCA800B26235 /* SwiftUIDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA083C2D2462BCA800B26235 /* SwiftUIDemoViews.swift */; };
 		DA82B1ED268B62D2005F67C3 /* LoadingRetryDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA82B1EC268B62D2005F67C3 /* LoadingRetryDemoView.swift */; };
 		DAE9CA8724602CB000C7552F /* SwiftUIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CA8624602CB000C7552F /* SwiftUIViewTests.swift */; };
+		F023EAEB27B6951400F6286B /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = F023EAEA27B6951400F6286B /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,6 +412,8 @@
 		4D152E7A2577DB1300282244 /* NavigationLinkViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkViewDemoView.swift; sourceTree = "<group>"; };
 		4D529E12258357D0007AE5B6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		4D529E2025837087007AE5B6 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		5B959C33286B6BD7933C9BA9 /* OverflowCollectionViewDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverflowCollectionViewDemo.swift; sourceTree = "<group>"; };
+		4DD3AA7927B5651F007B107E /* DetailCalloutDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCalloutDemoView.swift; sourceTree = "<group>"; };
 		5D62FD6F25B03B4800EB882D /* DemoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViews.swift; sourceTree = "<group>"; };
 		5DA190D425A5BC5B002305A8 /* FinnTextField+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinnTextField+Previews.swift"; sourceTree = "<group>"; };
 		5DA190EF25A87EAB002305A8 /* FinnTextView+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinnTextView+Previews.swift"; sourceTree = "<group>"; };
@@ -446,8 +450,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D43CD625BF239E00234AC2 /* SnapshotTesting in Frameworks */,
 				46E7759D242D6A8A008A5E93 /* FinniversKit.framework in Frameworks */,
+				F023EAEB27B6951400F6286B /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +871,7 @@
 				46E7730A242CEF09008A5E93 /* Viewings */,
 				46E772F4242CEF09008A5E93 /* VisibilityDrivenTitleView */,
 				8D680C5C0B76EA3807545F4D /* NumberedListView */,
+				5B959406F634CEBB6F0318BB /* OverflowCollectionView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1070,6 +1075,7 @@
 			isa = PBXGroup;
 			children = (
 				46E77307242CEF09008A5E93 /* CalloutDemoView.swift */,
+				4DD3AA7927B5651F007B107E /* DetailCalloutDemoView.swift */,
 			);
 			path = Callout;
 			sourceTree = "<group>";
@@ -1624,6 +1630,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		5B959406F634CEBB6F0318BB /* OverflowCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5B959C33286B6BD7933C9BA9 /* OverflowCollectionViewDemo.swift */,
+			);
+			path = OverflowCollectionView;
+			sourceTree = "<group>";
+		};
 		5DEAC3C225C164AB003376AD /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1787,7 +1801,7 @@
 			);
 			name = SnapshotTests;
 			packageProductDependencies = (
-				46E77597242D6890008A5E93 /* SnapshotTesting */,
+				F023EAEA27B6951400F6286B /* SnapshotTesting */,
 			);
 			productName = SnapshotTests;
 			productReference = 46E7756C242D4736008A5E93 /* SnapshotTests.xctest */;
@@ -1822,7 +1836,7 @@
 			);
 			mainGroup = 46AE6FB7242BADC9007BB005;
 			packageReferences = (
-				46E77596242D6890008A5E93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				F023EAE927B6951400F6286B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 46AE6FC1242BADC9007BB005 /* Products */;
 			projectDirPath = "";
@@ -1949,6 +1963,7 @@
 				46E7745A242CEF0A008A5E93 /* NativeAdvertRecommendationDemoCell.swift in Sources */,
 				46E773F3242CEF0A008A5E93 /* NativeAdvertDemoView.swift in Sources */,
 				46E77456242CEF0A008A5E93 /* TweakableDemoView.swift in Sources */,
+				4DD3AA7A27B5651F007B107E /* DetailCalloutDemoView.swift in Sources */,
 				46E77404242CEF0A008A5E93 /* ToastDemoView.swift in Sources */,
 				46E773C5242CEF0A008A5E93 /* FavoriteActionDemoView.swift in Sources */,
 				46E773B5242CEF0A008A5E93 /* PianoDemoView.swift in Sources */,
@@ -2080,6 +2095,7 @@
 				46E7743F242CEF0A008A5E93 /* ColorDemoView.swift in Sources */,
 				8D680A0AEE158DE3250140C2 /* CompactMarketsDemoView.swift in Sources */,
 				8D68030CF404D02BA5F8A618 /* NumberedListDemoView.swift in Sources */,
+				5B959A0F727EB51E56231370 /* OverflowCollectionViewDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2347,20 +2363,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		46E77596242D6890008A5E93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+		F023EAE927B6951400F6286B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			repositoryURL = "https://github.com/pimms/swift-snapshot-testing.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.9.0;
+				kind = revision;
+				revision = 0efeef44df913fe60ea868f037f271ac927a8e8c;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		46E77597242D6890008A5E93 /* SnapshotTesting */ = {
+		F023EAEA27B6951400F6286B /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 46E77596242D6890008A5E93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			package = F023EAE927B6951400F6286B /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
