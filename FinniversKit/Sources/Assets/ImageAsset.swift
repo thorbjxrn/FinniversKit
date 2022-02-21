@@ -100,6 +100,7 @@ enum ImageAsset: String {
     case favourites
     case finnLogo
     case finnLogoSimple
+    case floral
     case gallery
     case gift
     case giftRoundedRectRed
