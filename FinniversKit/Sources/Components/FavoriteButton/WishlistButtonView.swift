@@ -9,7 +9,6 @@ import UIKit
 
 public protocol WishlistButtonViewModel {
     var title: String { get }
-    var subtitle: String? { get }
     var isWishlisted: Bool { get }
 }
 
@@ -26,39 +25,22 @@ public class WishlistButtonView: UIView {
     // MARK: - Private properties
 
     private var viewModel: WishlistButtonViewModel?
-    private let flatButtonStyle = Button.Style.flat.overrideStyle(margins: UIEdgeInsets.zero)
 
     private lazy var button: Button = {
-        /*
-        let button = Button(style: flatButtonStyle, withAutoLayout: true)
+        let button = Button(style: .callToAction, withAutoLayout: true)
         button.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
-        button.titleEdgeInsets = UIEdgeInsets(leading: .spacingS)
-        button.imageEdgeInsets = UIEdgeInsets(top: -.spacingXS)
-        button.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        button.contentHorizontalAlignment = .leading
-        button.adjustsImageWhenHighlighted = false
-        return button
-         */
-        let button = Button(style: .default, withAutoLayout: true)
-        //button.setTitle("wishlist.actionButtonTitle".localized(), for: .normal)
-        button.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        
         return button
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [button, subtitleLabel])
+        let stackView = UIStackView(arrangedSubviews: [button])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
         return stackView
-    }()
-
-    private lazy var subtitleLabel: Label = {
-        let label = Label(style: .detail, withAutoLayout: true)
-        label.textColor = .textSecondary
-        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        return label
     }()
 
     // MARK: - Init
@@ -81,12 +63,13 @@ public class WishlistButtonView: UIView {
 
     public func configure(with viewModel: WishlistButtonViewModel) {
         self.viewModel = viewModel
-
+        
         button.setTitle(viewModel.title, for: .normal)
-        subtitleLabel.text = viewModel.subtitle
-        let image = viewModel.isWishlisted ? UIImage(named: .carsIllustration) : UIImage(named: .betaPill)
-        button.setImage(image.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.imageView?.tintColor = .btnAction
+        
+        button.titleLabel?.dropShadow(color: UIColor.black, opacity: 1.0, offset: CGSize.zero, radius: CGFloat.init(2.5))
+        
+        button.setBackgroundImage(UIImage(named: .floral), for: .normal)
+        button.clipsToBounds = true
     }
 
     // MARK: - Private methods
@@ -94,6 +77,6 @@ public class WishlistButtonView: UIView {
     @objc private func handleButtonTap() {
         guard let viewModel = viewModel else { return }
         delegate?.wishlistButtonDidSelect(self, button: button, viewModel: viewModel)
-        print("WISHLIST BUTTON!!")
+        print("Save to storage from here!")
     }
 }
