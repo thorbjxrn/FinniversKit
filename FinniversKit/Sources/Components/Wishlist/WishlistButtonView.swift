@@ -16,6 +16,7 @@ public protocol WishlistButtonViewDelegate: AnyObject {
     func wishlistButtonDidSelect(_ wishlistButtonView: WishlistButtonView, button: Button, viewModel: WishlistButtonViewModel)
 }
 
+
 public class WishlistButtonView: UIView {
 
     // MARK: - Public properties
@@ -33,6 +34,8 @@ public class WishlistButtonView: UIView {
         
         return button
     }()
+    
+    
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [button])
@@ -77,6 +80,7 @@ public class WishlistButtonView: UIView {
     @objc private func handleButtonTap() {
         guard let viewModel = viewModel else { return }
         delegate?.wishlistButtonDidSelect(self, button: button, viewModel: viewModel)
-        print("Save to storage from here!")
+        print("WishlistButtonView button tap")
+        
     }
 }
