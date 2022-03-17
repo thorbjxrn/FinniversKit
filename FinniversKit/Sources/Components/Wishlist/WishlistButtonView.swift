@@ -79,6 +79,7 @@ public class WishlistButtonView: UIView {
 
     @objc private func handleButtonTap() {
         guard let viewModel = viewModel else { return }
+        print("handleButtonTap from wishlistButtonView \(delegate)")
         delegate?.wishlistButtonDidSelect(self, button: button, viewModel: viewModel)
     }
 }
