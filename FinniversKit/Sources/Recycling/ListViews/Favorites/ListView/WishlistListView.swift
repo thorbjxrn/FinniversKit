@@ -27,23 +27,24 @@ public class WishlistListView: UIView {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        //tableView.delegate = self
+        //tableView.dataSource = self
         tableView.backgroundColor = .bgPrimary
-        tableView.rowHeight = WishlistListView.estimatedRowHeight
-        tableView.estimatedRowHeight = WishlistListView.estimatedRowHeight
+        tableView.rowHeight = FavoritesListView.estimatedRowHeight
+        tableView.estimatedRowHeight = FavoritesListView.estimatedRowHeight
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return tableView
     }()
-
     private weak var delegate: WishlistListViewDelegate?
-    //private weak var dataSource: FavoritesListViewDataSource?
+    private weak var dataSource: WishlistListViewDataSource?
 
     // MARK: - Setup
 
-    public init(delegate: WishlistListViewDelegate, dataSource: FavoritesListViewDataSource) {
+    public init(delegate: WishlistListViewDelegate, dataSource: WishlistListViewDataSource) {
         super.init(frame: .zero)
 
         self.delegate = delegate
-        //self.dataSource = dataSource
+        self.dataSource = dataSource
 
         setup()
     }
