@@ -33,6 +33,7 @@ extension UIImage {
 //swiftlint:disable superfluous_disable_command
 //swiftlint:disable type_body_length
 enum ImageAsset: String {
+    case floral = "Floral"
     case adManagementShare
     case adManagementTrashcan
     case arrowDown
@@ -100,7 +101,6 @@ enum ImageAsset: String {
     case favourites
     case finnLogo
     case finnLogoSimple
-    case floral
     case gallery
     case gift
     case giftRoundedRectRed
@@ -175,6 +175,7 @@ enum ImageAsset: String {
 
     static var imageNames: [ImageAsset] {
         return [
+            .floral,
             .adManagementShare,
             .adManagementTrashcan,
             .arrowDown,
